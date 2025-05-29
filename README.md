@@ -46,7 +46,9 @@ Connect, setup Wi-Fi and run somes update.
 sudo apt install -y git 
 git clone https://github.com/heuzef/eggnoggpi.git
 cd eggnoggpi
-sudo apt install -y ./box64.deb 
+sudo wget https://ryanfortner.github.io/box64-debs/box64.list -O /etc/apt/sources.list.d/box64.list
+wget -qO- https://ryanfortner.github.io/box64-debs/KEY.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/box64-debs-archive-keyring.gpg 
+sudo apt update && sudo apt install box64 -y
 sudo apt install --no-install-recommends -y ./eggnoggpi.deb # When the prompt ask for enabling nodm, choose "yes"
 sudo reboot
 ```
